@@ -230,7 +230,8 @@
             const content = document.getElementById('content');
             let enteredPassword = '';
 
-            while (enteredPassword !== 'PyleaMUN2026') {
+            // MODIFICATION: The loop now correctly checks for the single password 'p2026'.
+            while (enteredPassword !== 'p2026') {
                 enteredPassword = prompt("Please enter the activation code to access the form:");
 
                 if (enteredPassword === null) {
@@ -238,7 +239,7 @@
                     return;
                 }
 
-                if (enteredPassword !== '2026') {
+                if (enteredPassword !== 'p2026') {
                     alert("Incorrect code. Please try again.");
                 }
             }
@@ -254,28 +255,4 @@
                 firstName: document.getElementById('firstName').value,
                 surname: document.getElementById('surname').value,
                 role: document.getElementById('userRole').value,
-                school: document.getElementById('schoolName').value,
-                email: document.getElementById('forwardingEmail').value,
-                committee: document.getElementById('committee').value,
-                country: document.getElementById('country').value,
-                notes: document.getElementById('notes').value
-            };
-            
-            if (person.role === "") {
-                alert("Please select a role from the list.");
-                return;
-            }
-
-            let registrations = JSON.parse(localStorage.getItem('registrations')) || [];
-            registrations.push(person);
-            localStorage.setItem('registrations', JSON.stringify(registrations));
-
-            alert(`Registration for ${person.firstName} ${person.surname} has been saved!`);
-
-            // MODIFICATION: The script no longer redirects. It resets the form for the next entry.
-            document.getElementById('registrationForm').reset();
-            document.getElementById('firstName').focus();
-        });
-    </script>
-</body>
-</html>
+                school: document.getElementById('schoolName
