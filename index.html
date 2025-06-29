@@ -74,12 +74,11 @@
             border: 1px solid #ccc;
             font-size: 1em;
             box-sizing: border-box;
-            background-color: white;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        .submit-btn {
+        .submit-btn, .action-link { /* MODIFICATION: Added .action-link */
             background-color: #00b4a0;
-            color: white;
+            color: white !important; /* Ensure text is white */
             font-size: 1.1em;
             padding: 1em;
             border: none;
@@ -88,11 +87,28 @@
             width: 100%;
             margin-top: 1em;
             transition: all 0.3s ease;
+            text-decoration: none; /* For the <a> tag */
+            display: block; /* For the <a> tag */
+            text-align: center; /* For the <a> tag */
         }
-        .submit-btn:hover {
+        .submit-btn:hover, .action-link:hover { /* MODIFICATION: Added .action-link */
             background-color: #00897b;
             transform: scale(1.05);
         }
+        /* MODIFICATION START: New styles for the button layout */
+        .button-group {
+            display: flex;
+            gap: 1em;
+            align-items: center;
+        }
+        .secondary-btn {
+            background-color: #546e7a;
+        }
+        .secondary-btn:hover {
+            background-color: #455a64;
+        }
+        /* MODIFICATION END */
+
         .form-group {
             margin-bottom: 1.5em;
         }
@@ -109,6 +125,9 @@
             }
             .logo {
                 margin: 15px 0;
+            }
+            .button-group {
+                flex-direction: column;
             }
         }
     </style>
@@ -188,96 +207,7 @@
                     <label for="country">🌍 Country Assignment:</label>
                     <input type="text" id="country" list="country-list" placeholder="N/A, select from list, or type a country">
                     <datalist id="country-list">
-                        <option value="Albania"></option>
-                        <option value="Andorra"></option>
-                        <option value="Argentina"></option>
-                        <option value="Armenia"></option>
-                        <option value="Australia"></option>
-                        <option value="Austria"></option>
-                        <option value="Azerbaijan"></option>
-                        <option value="Bahrain"></option>
-                        <option value="Belarus"></option>
-                        <option value="Belgium"></option>
-                        <option value="Belize"></option>
-                        <option value="Bhutan"></option>
-                        <option value="Bosnia and Herzegovina"></option>
-                        <option value="Brazil"></option>
-                        <option value="Bulgaria"></option>
-                        <option value="Canada"></option>
-                        <option value="Chile"></option>
-                        <option value="China"></option>
-                        <option value="Colombia"></option>
-                        <option value="Costa Rica"></option>
-                        <option value="Croatia"></option>
-                        <option value="Cyprus"></option>
-                        <option value="Czech Republic"></option>
-                        <option value="Denmark"></option>
-                        <option value="Egypt"></option>
-                        <option value="Estonia"></option>
-                        <option value="Ethiopia"></option>
-                        <option value="Fiji"></option>
-                        <option value="Finland"></option>
-                        <option value="France"></option>
-                        <option value="Georgia"></option>
-                        <option value="Germany"></option>
-                        <option value="Ghana"></option>
-                        <option value="Greece"></option>
-                        <option value="Hungary"></option>
-                        <option value="Iceland"></option>
-                        <option value="India"></option>
-                        <option value="Indonesia"></option>
-                        <option value="Iran"></option>
-                        <option value="Iraq"></option>
-                        <option value="Ireland"></option>
-                        <option value="Israel"></option>
-                        <option value="Italy"></option>
-                        <option value="Jamaica"></option>
-                        <option value="Japan"></option>
-                        <option value="Jordan"></option>
-                        <option value="Kazakhstan"></option>
-                        <option value="Kenya"></option>
-                        <option value="Kuwait"></option>
-                        <option value="Latvia"></option>
-                        <option value="Lebanon"></option>
-                        <option value="Liechtenstein"></option>
-                        <option value="Lithuania"></option>
-                        <option value="Luxembourg"></option>
-                        <option value="Maldives"></option>
-                        <option value="Malta"></option>
-                        <option value="Mexico"></option>
-                        <option value="Moldova"></option>
-                        <option value="Monaco"></option>
-                        <option value="Montenegro"></option>
-                        <option value="Nepal"></option>
-                        <option value="Netherlands"></option>
-                        <option value="New Zealand"></option>
-                        <option value="Nigeria"></option>
-                        <option value="North Macedonia"></option>
-                        <option value="Norway"></option>
-                        <option value="Oman"></option>
-                        <option value="Philippines"></option>
-                        <option value="Poland"></option>
-                        <option value="Portugal"></option>
-                        <option value="Qatar"></option>
-                        <option value="Romania"></option>
-                        <option value="Russia"></option>
-                        <option value="San Marino"></option>
-                        <option value="Saudi Arabia"></option>
-                        <option value="Serbia"></option>
-                        <option value="Singapore"></option>
-                        <option value="Slovakia"></option>
-                        <option value="Slovenia"></option>
-                        <option value="South Africa"></option>
-                        <option value="South Korea"></option>
-                        <option value="Spain"></option>
-                        <option value="Sweden"></option>
-                        <option value="Switzerland"></option>
-                        <option value="Turkey"></option>
-                        <option value="Ukraine"></option>
-                        <option value="United Arab Emirates"></option>
-                        <option value="United Kingdom"></option>
-                        <option value="United States"></option>
-                        <option value="Vietnam"></option>
+                         <option value="Albania"></option><option value="Andorra"></option><option value="Argentina"></option><option value="Armenia"></option><option value="Australia"></option><option value="Austria"></option><option value="Azerbaijan"></option><option value="Bahrain"></option><option value="Belarus"></option><option value="Belgium"></option><option value="Belize"></option><option value="Bhutan"></option><option value="Bosnia and Herzegovina"></option><option value="Brazil"></option><option value="Bulgaria"></option><option value="Canada"></option><option value="Chile"></option><option value="China"></option><option value="Colombia"></option><option value="Costa Rica"></option><option value="Croatia"></option><option value="Cyprus"></option><option value="Czech Republic"></option><option value="Denmark"></option><option value="Egypt"></option><option value="Estonia"></option><option value="Ethiopia"></option><option value="Fiji"></option><option value="Finland"></option><option value="France"></option><option value="Georgia"></option><option value="Germany"></option><option value="Ghana"></option><option value="Greece"></option><option value="Hungary"></option><option value="Iceland"></option><option value="India"></option><option value="Indonesia"></option><option value="Iran"></option><option value="Iraq"></option><option value="Ireland"></option><option value="Israel"></option><option value="Italy"></option><option value="Jamaica"></option><option value="Japan"></option><option value="Jordan"></option><option value="Kazakhstan"></option><option value="Kenya"></option><option value="Kuwait"></option><option value="Latvia"></option><option value="Lebanon"></option><option value="Liechtenstein"></option><option value="Lithuania"></option><option value="Luxembourg"></option><option value="Maldives"></option><option value="Malta"></option><option value="Mexico"></option><option value="Moldova"></option><option value="Monaco"></option><option value="Montenegro"></option><option value="Nepal"></option><option value="Netherlands"></option><option value="New Zealand"></option><option value="Nigeria"></option><option value="North Macedonia"></option><option value="Norway"></option><option value="Oman"></option><option value="Philippines"></option><option value="Poland"></option><option value="Portugal"></option><option value="Qatar"></option><option value="Romania"></option><option value="Russia"></option><option value="San Marino"></option><option value="Saudi Arabia"></option><option value="Serbia"></option><option value="Singapore"></option><option value="Slovakia"></option><option value="Slovenia"></option><option value="South Africa"></option><option value="South Korea"></option><option value="Spain"></option><option value="Sweden"></option><option value="Switzerland"></option><option value="Turkey"></option><option value="Ukraine"></option><option value="United Arab Emirates"></option><option value="United Kingdom"></option><option value="United States"></option><option value="Vietnam"></option>
                     </datalist>
                 </div>
                 
@@ -286,8 +216,11 @@
                     <textarea id="notes" rows="4" placeholder="Enter any additional notes here..."></textarea>
                 </div>
 
-                <button type="submit" class="submit-btn">Save Registration and Enter New</button>
-            </form>
+                <div class="button-group">
+                    <button type="submit" class="submit-btn">Save & Add New</button>
+                    <a href="https://pyleamun.github.io/delegate-list/" target="_blank" class="action-link secondary-btn">View Full List</a>
+                </div>
+                </form>
         </main>
     </div>
 
@@ -297,23 +230,19 @@
             const content = document.getElementById('content');
             let enteredPassword = '';
 
-            // Keep asking for the password until the correct one is entered
             while (enteredPassword !== 'PyleaMUN2026') {
                 enteredPassword = prompt("Please enter the activation code to access the form:");
 
-                // If the user clicks "Cancel", deny access and stop the script.
                 if (enteredPassword === null) {
                     document.body.innerHTML = `<h1 style="text-align: center; color: #d32f2f; margin-top: 4em;">Access Denied</h1>`;
                     return;
                 }
 
-                // If the password is wrong, show an error message. The loop will then repeat.
                 if (enteredPassword !== 'PyleaMUN2026') {
                     alert("Incorrect code. Please try again.");
                 }
             }
 
-            // If the loop finishes, the password was correct. Reveal the form.
             content.style.display = 'block';
         });
 
@@ -321,30 +250,21 @@
         document.getElementById('registrationForm').addEventListener('submit', function(event) {
             event.preventDefault();
 
-            const firstName = document.getElementById('firstName').value;
-            const surname = document.getElementById('surname').value;
-            const userRole = document.getElementById('userRole').value;
-            const schoolName = document.getElementById('schoolName').value;
-            const forwardingEmail = document.getElementById('forwardingEmail').value;
-            const committee = document.getElementById('committee').value;
-            const country = document.getElementById('country').value;
-            const notes = document.getElementById('notes').value;
+            const person = {
+                firstName: document.getElementById('firstName').value,
+                surname: document.getElementById('surname').value,
+                role: document.getElementById('userRole').value,
+                school: document.getElementById('schoolName').value,
+                email: document.getElementById('forwardingEmail').value,
+                committee: document.getElementById('committee').value,
+                country: document.getElementById('country').value,
+                notes: document.getElementById('notes').value
+            };
             
-            if (userRole === "") {
+            if (person.role === "") {
                 alert("Please select a role from the list.");
                 return;
             }
-
-            const person = {
-                firstName: firstName,
-                surname: surname,
-                role: userRole,
-                school: schoolName,
-                email: forwardingEmail,
-                committee: committee,
-                country: country,
-                notes: notes
-            };
 
             let registrations = JSON.parse(localStorage.getItem('registrations')) || [];
             registrations.push(person);
@@ -352,8 +272,9 @@
 
             alert(`Registration for ${person.firstName} ${person.surname} has been saved!`);
 
-            // This must be updated to your personal GitHub Pages URL for the list page
-            window.location.href = 'https://pyleamun.github.io/delegate-list/';
+            // MODIFICATION: The script no longer redirects. It resets the form for the next entry.
+            document.getElementById('registrationForm').reset();
+            document.getElementById('firstName').focus();
         });
     </script>
 </body>
