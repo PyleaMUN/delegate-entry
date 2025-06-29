@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>PyleaMUN - HR Registration</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #E8EAE6;
+            color: #333;
+        }
+        .letterhead {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #D6DBD2;
+            border-bottom: 2px solid #444;
+            padding: 10px 20px;
+            height: 100px;
+        }
+        .address, .contact {
+            width: 25%;
+            font-size: 0.9rem;
+            color: #333;
+        }
+        .contact {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+        .contact div {
+            margin: 2px 0;
+        }
+        .logo {
+            width: 120px;
+            height: auto;
+        }
+        .letterhead a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        .letterhead a:hover {
+            text-decoration: underline;
+        }
+        main {
+            padding: 2em;
+            max-width: 800px;
+            margin: auto;
+        }
+        h1 {
+            text-align: center;
+            color: #005b63;
+        }
+        form {
+            background: #ffffff;
+            padding: 2em;
+            border-radius: 16px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            background-color: #e0f7fa;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 0.3em;
+        }
+        input, select, textarea { /* Added textarea */
+            width: 100%;
+            padding: 0.7em;
+            margin-bottom: 1.2em;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 1em;
+            box-sizing: border-box;
+            background-color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Consistent font */
+        }
+        .submit-btn {
+            background-color: #00b4a0;
+            color: white;
+            font-size: 1.1em;
+            padding: 1em;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 1em;
+            transition: all 0.3s ease;
+        }
+        .submit-btn:hover {
+            background-color: #00897b;
+            transform: scale(1.05);
+        }
+        .form-group {
+            margin-bottom: 1.5em;
+        }
+        @media (max-width: 768px) {
+            .letterhead {
+                flex-direction: column;
+                height: auto;
+                text-align: center;
+            }
+            .address, .contact {
+                width: 100%;
+                align-items: center;
+                margin-top: 10px;
+            }
+            .logo {
+                margin: 15px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="letterhead">
+        <div class="address">
+            <strong>4 Isminis Str.</strong><br>
+            Pylaia, Thessaloniki - 55535
+        </div>
+        <div>
+            <img src="https://pyleamun.github.io/interview-guide/pyleaMUNfinallogo_transparent.png" alt="PyleaMUN Logo" class="logo">
+        </div>
+        <div class="contact">
+            <div>📞 +30 2310329199</div>
+            <div>📧 <a href="mailto:pyleamun@gmail.com">pyleamun@gmail.com</a></div>
+            <div>🌐 <a href="https://pyleamun.github.io/pyleamun2026/" target="_blank">pyleamun.github.io/pyleamun2026</a></div>
+        </div>
+    </div>
+
+    <main>
+        <form id="registrationForm">
+            <h1>📋 HR Registration</h1>
+
+            <div class="form-group">
+                <label for="firstName">🧑‍🎓 First Name:</label>
+                <input type="text" id="firstName" required>
+            </div>
+
+            <div class="form-group">
+                <label for="surname">🧑‍🎓 Surname:</label>
+                <input type="text" id="surname" required>
+            </div>
+
+            <div class="form-group">
+                <label for="userRole">👤 Role:</label>
+                <select id="userRole" required>
+                    <option value="" disabled selected>-- Select a Role --</option>
+                    <option value="Executive">Executive</option>
+                    <option value="Student Officer">Student Officer</option>
+                    <option value="Delegate">Delegate</option>
+                    <option value="Staff Member">Staff Member</option>
+                    <option value="Press">Press</option>
+                    <option value="Visitor">Visitor</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="schoolName">🏫 School / Organization:</label>
+                <input type="text" id="schoolName" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="forwardingEmail">📧 Forwarding e-mail address:</label>
+                <input type="email" id="forwardingEmail" placeholder="e.g., advisor@school.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="committee">🏛️ Committee:</label>
+                <select id="committee">
+                    <option value="" selected>-- N/A or Select a Committee --</option>
+                    <option value="UN Environment Programme">UN Environment Programme</option>
+                    <option value="Security Council">Security Council</option>
+                    <option value="Economic & Social Council">Economic & Social Council</option>
+                    <option value="NATO">NATO</option>
+                    <option value="World Health Organisation">World Health Organisation</option>
+                    <option value="Human Rights Council">Human Rights Council</option>
+                    <option value="UNESCO">UNESCO</option>
+                    <option value="UN Women">UN Women</option>
+                    <option value="Historical Crisis Committee">Historical Crisis Committee</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="country">🌍 Country Assignment:</label>
+                <input type="text" id="country" list="country-list" placeholder="N/A, select from list, or type a country">
+                <datalist id="country-list">
+                    <option value="Albania"></option>
+                    <option value="Andorra"></option>
+                    <option value="Argentina"></option>
+                    <option value="Armenia"></option>
+                    <option value="Australia"></option>
+                    <option value="Austria"></option>
+                    <option value="Azerbaijan"></option>
+                    <option value="Bahrain"></option>
+                    <option value="Belarus"></option>
+                    <option value="Belgium"></option>
+                    <option value="Belize"></option>
+                    <option value="Bhutan"></option>
+                    <option value="Bosnia and Herzegovina"></option>
+                    <option value="Brazil"></option>
+                    <option value="Bulgaria"></option>
+                    <option value="Canada"></option>
+                    <option value="Chile"></option>
+                    <option value="China"></option>
+                    <option value="Colombia"></option>
+                    <option value="Costa Rica"></option>
+                    <option value="Croatia"></option>
+                    <option value="Cyprus"></option>
+                    <option value="Czech Republic"></option>
+                    <option value="Denmark"></option>
+                    <option value="Egypt"></option>
+                    <option value="Estonia"></option>
+                    <option value="Ethiopia"></option>
+                    <option value="Fiji"></option>
+                    <option value="Finland"></option>
+                    <option value="France"></option>
+                    <option value="Georgia"></option>
+                    <option value="Germany"></option>
+                    <option value="Ghana"></option>
+                    <option value="Greece"></option>
+                    <option value="Hungary"></option>
+                    <option value="Iceland"></option>
+                    <option value="India"></option>
+                    <option value="Indonesia"></option>
+                    <option value="Iran"></option>
+                    <option value="Iraq"></option>
+                    <option value="Ireland"></option>
+                    <option value="Israel"></option>
+                    <option value="Italy"></option>
+                    <option value="Jamaica"></option>
+                    <option value="Japan"></option>
+                    <option value="Jordan"></option>
+                    <option value="Kazakhstan"></option>
+                    <option value="Kenya"></option>
+                    <option value="Kuwait"></option>
+                    <option value="Latvia"></option>
+                    <option value="Lebanon"></option>
+                    <option value="Liechtenstein"></option>
+                    <option value="Lithuania"></option>
+                    <option value="Luxembourg"></option>
+                    <option value="Maldives"></option>
+                    <option value="Malta"></option>
+                    <option value="Mexico"></option>
+                    <option value="Moldova"></option>
+                    <option value="Monaco"></option>
+                    <option value="Montenegro"></option>
+                    <option value="Nepal"></option>
+                    <option value="Netherlands"></option>
+                    <option value="New Zealand"></option>
+                    <option value="Nigeria"></option>
+                    <option value="North Macedonia"></option>
+                    <option value="Norway"></option>
+                    <option value="Oman"></option>
+                    <option value="Philippines"></option>
+                    <option value="Poland"></option>
+                    <option value="Portugal"></option>
+                    <option value="Qatar"></option>
+                    <option value="Romania"></option>
+                    <option value="Russia"></option>
+                    <option value="San Marino"></option>
+                    <option value="Saudi Arabia"></option>
+                    <option value="Serbia"></option>
+                    <option value="Singapore"></option>
+                    <option value="Slovakia"></option>
+                    <option value="Slovenia"></option>
+                    <option value="South Africa"></option>
+                    <option value="South Korea"></option>
+                    <option value="Spain"></option>
+                    <option value="Sweden"></option>
+                    <option value="Switzerland"></option>
+                    <option value="Turkey"></option>
+                    <option value="Ukraine"></option>
+                    <option value="United Arab Emirates"></option>
+                    <option value="United Kingdom"></option>
+                    <option value="United States"></option>
+                    <option value="Vietnam"></option>
+                </datalist>
+            </div>
+            
+            <div class="form-group">
+                <label for="notes">📝 Notes:</label>
+                <textarea id="notes" rows="4" placeholder="Enter any additional notes here..."></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Save Registration and Enter New</button>
+        </form>
+    </main>
+
+    <script>
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Get the values from all form fields
+            const firstName = document.getElementById('firstName').value;
+            const surname = document.getElementById('surname').value;
+            const userRole = document.getElementById('userRole').value;
+            const schoolName = document.getElementById('schoolName').value;
+            const forwardingEmail = document.getElementById('forwardingEmail').value;
+            const committee = document.getElementById('committee').value;
+            const country = document.getElementById('country').value;
+            const notes = document.getElementById('notes').value; // Capture notes
+            
+            if (userRole === "") {
+                alert("Please select a role from the list.");
+                return;
+            }
+
+            // Create a person object with all the data
+            const person = {
+                firstName: firstName,
+                surname: surname,
+                role: userRole,
+                school: schoolName,
+                email: forwardingEmail,
+                committee: committee,
+                country: country,
+                notes: notes // Add notes to the object
+            };
+
+            // Save to 'registrations' in localStorage
+            let registrations = JSON.parse(localStorage.getItem('registrations')) || [];
+            registrations.push(person);
+            localStorage.setItem('registrations', JSON.stringify(registrations));
+
+            alert(`Registration for ${person.firstName} ${person.surname} has been saved!`);
+
+            // MODIFICATION: Redirect to the delegate list page
+            window.location.href = 'https://pyleamun.github.io/delegate-list/';
+        });
+    </script>
+</body>
+</html>
