@@ -76,9 +76,9 @@
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        .submit-btn, .action-link { /* MODIFICATION: Added .action-link */
+        .submit-btn, .action-link {
             background-color: #00b4a0;
-            color: white !important; /* Ensure text is white */
+            color: white !important;
             font-size: 1.1em;
             padding: 1em;
             border: none;
@@ -87,15 +87,14 @@
             width: 100%;
             margin-top: 1em;
             transition: all 0.3s ease;
-            text-decoration: none; /* For the <a> tag */
-            display: block; /* For the <a> tag */
-            text-align: center; /* For the <a> tag */
+            text-decoration: none;
+            display: block;
+            text-align: center;
         }
-        .submit-btn:hover, .action-link:hover { /* MODIFICATION: Added .action-link */
+        .submit-btn:hover, .action-link:hover {
             background-color: #00897b;
             transform: scale(1.05);
         }
-        /* MODIFICATION START: New styles for the button layout */
         .button-group {
             display: flex;
             gap: 1em;
@@ -107,8 +106,6 @@
         .secondary-btn:hover {
             background-color: #455a64;
         }
-        /* MODIFICATION END */
-
         .form-group {
             margin-bottom: 1.5em;
         }
@@ -255,4 +252,28 @@
                 firstName: document.getElementById('firstName').value,
                 surname: document.getElementById('surname').value,
                 role: document.getElementById('userRole').value,
-                school: document.getElementById('schoolName
+                school: document.getElementById('schoolName').value,
+                email: document.getElementById('forwardingEmail').value,
+                committee: document.getElementById('committee').value,
+                country: document.getElementById('country').value,
+                notes: document.getElementById('notes').value
+            };
+            
+            if (person.role === "") {
+                alert("Please select a role from the list.");
+                return;
+            }
+
+            let registrations = JSON.parse(localStorage.getItem('registrations')) || [];
+            registrations.push(person);
+            localStorage.setItem('registrations', JSON.stringify(registrations));
+
+            alert(`Registration for ${person.firstName} ${person.surname} has been saved!`);
+
+            // MODIFICATION: The script no longer redirects. It resets the form for the next entry.
+            document.getElementById('registrationForm').reset();
+            document.getElementById('firstName').focus();
+        });
+    </script>
+</body>
+</html>
